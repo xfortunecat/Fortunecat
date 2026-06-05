@@ -1,0 +1,43 @@
+{
+  "app_name": "星盤 StarChart",
+  "tagline": "探索命運之星",
+  "nav": {
+    "home": "首頁", "readings": "占卜", "shop": "商店", "news": "消息", "profile": "我的"
+  },
+  "home": {
+    "daily_card": "每日塔羅", "draw_card": "抽一張牌", "quick_ziwei": "紫微命盤", "featured": "精選推薦", "latest_news": "最新消息"
+  },
+  "auth": {
+    "login": "登入", "register": "註冊", "logout": "登出", "email": "電郵地址", "password": "密碼", "name": "姓名", "confirm_password": "確認密碼", "forgot_password": "忘記密碼？", "no_account": "還沒有帳戶？", "have_account": "已有帳戶？", "google_login": "使用 Google 登入", "apple_login": "使用 Apple 登入", "welcome_back": "歡迎回來", "create_account": "建立帳戶"
+  },
+  "ziwei": {
+    "title": "紫微斗數命盤", "subtitle": "輸入出生資料，探索您的命運", "birth_date": "出生日期", "birth_hour": "出生時辰", "birth_location": "出生地點", "calculate": "起盤", "life_palace": "命宮", "wealth_palace": "財帛宮", "spouse_palace": "夫妻宮", "career_palace": "事業宮", "siblings_palace": "兄弟宮", "children_palace": "子女宮", "health_palace": "疾厄宮", "travel_palace": "遷移宮", "friends_palace": "交友宮", "property_palace": "田宅宮", "fortune_palace": "福德宮", "parents_palace": "父母宮",
+    "hours": {
+      "zi": "子時 (23:00-01:00)", "chou": "丑時 (01:00-03:00)", "yin": "寅時 (03:00-05:00)", "mao": "卯時 (05:00-07:00)", "chen": "辰時 (07:00-09:00)", "si": "巳時 (09:00-11:00)", "wu": "午時 (11:00-13:00)", "wei": "未時 (13:00-15:00)", "shen": "申時 (15:00-17:00)", "you": "酉時 (17:00-19:00)", "xu": "戌時 (19:00-21:00)", "hai": "亥時 (21:00-23:00)"
+    },
+    "premium_only": "升級至尊享版以查看完整命盤解讀",
+    "save_chart": "儲存命盤", "chart_saved": "命盤已儲存"
+  },
+  "tarot": {
+    "title": "塔羅牌占卜", "daily": "每日一牌", "three_card": "三牌展開", "celtic_cross": "凱爾特十字", "draw": "抽牌", "flip": "翻牌", "upright": "正位", "reversed": "逆位", "past": "過去", "present": "現在", "future": "未來", "premium_only": "凱爾特十字為尊享會員專屬", "history": "占卜記錄", "meaning": "牌義"
+  },
+  "shop": {
+    "title": "商店", "add_to_cart": "加入購物車", "cart": "購物車", "checkout": "結帳", "empty_cart": "購物車是空的", "total": "合計", "digital": "數位產品", "physical": "實體商品", "in_stock": "有貨", "out_of_stock": "缺貨", "promo_code": "優惠碼", "apply": "套用", "order_summary": "訂單摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全處理（測試模式）", "orders": "我的訂單", "order_status": { "pending": "待處理", "paid": "已付款", "shipped": "已發貨", "delivered": "已送達" }
+  },
+  "news": {
+    "title": "最新消息", "categories": { "all": "全部", "astrology": "星象解析", "tarot": "塔羅心得", "platform": "平台公告", "promotion": "優惠活動" }, "read_more": "閱讀更多", "latest": "最新"
+  },
+  "profile": {
+    "title": "我的帳戶", "membership": "會員等級", "free": "免費版", "premium": "尊享版", "upgrade": "升級尊享版", "birth_info": "出生資料", "language": "語言設定", "notifications": "通知設定", "saved_charts": "儲存的命盤", "dark_mode": "深色模式", "save": "儲存"
+  },
+  "notifications": {
+    "title": "通知", "empty": "沒有新通知", "new_article": "有新文章", "promotion": "限時優惠", "daily_card": "今日塔羅已準備好"
+  },
+  "membership": {
+    "free_features": ["每日一張免費塔羅牌", "紫微基本命盤（3宮）", "瀏覽商店"],
+    "premium_features": ["完整12宮紫微命盤", "大限流年分析", "三牌及凱爾特十字", "占卜記錄無限保存", "尊享會員折扣"]
+  },
+  "common": {
+    "loading": "載入中...", "error": "發生錯誤", "retry": "重試", "back": "返回", "close": "關閉", "save": "儲存", "cancel": "取消", "confirm": "確認", "premium_badge": "尊享", "free_badge": "免費", "mock_notice": "演示模式：使用模擬資料"
+  }
+}

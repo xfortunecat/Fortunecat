@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-navy-900 text-ivory font-body;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3Ccircle cx='0' cy='0' r='0.5'/%3E%3Ccircle cx='60' cy='0' r='0.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold-400 text-navy-900 font-semibold px-6 py-3 rounded-lg hover:bg-gold-300 transition-all duration-200 active:scale-95;
+  }
+  .btn-outline {
+    @apply border border-gold-400 text-gold-400 font-semibold px-6 py-3 rounded-lg hover:bg-gold-400 hover:text-navy-900 transition-all duration-200 active:scale-95;
+  }
+  .card-glass {
+    @apply bg-navy-800/60 backdrop-blur-sm border border-gold-400/10 rounded-2xl;
+  }
+  .section-title {
+    @apply font-display text-2xl text-gold-400 mb-1;
+  }
+  .input-field {
+    @apply w-full bg-navy-800 border border-gold-400/20 rounded-lg px-4 py-3 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold-400/60 transition-colors;
+  }
+  .page-container {
+    @apply max-w-lg mx-auto px-4 pb-28 pt-6;
+  }
+}
+
+/* Card flip */
+.card-scene { perspective: 800px; }
+.card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.card-inner.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-back { transform: rotateY(180deg); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gold-400/30 rounded-full; }
+
+/* Bottom nav safe area */
+.bottom-nav { padding-bottom: env(safe-area-inset-bottom); }

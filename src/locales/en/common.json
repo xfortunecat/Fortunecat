@@ -1,0 +1,43 @@
+{
+  "app_name": "StarChart",
+  "tagline": "Navigate Your Destiny",
+  "nav": {
+    "home": "Home", "readings": "Readings", "shop": "Shop", "news": "News", "profile": "Profile"
+  },
+  "home": {
+    "daily_card": "Daily Tarot", "draw_card": "Draw a Card", "quick_ziwei": "Zi Wei Chart", "featured": "Featured", "latest_news": "Latest News"
+  },
+  "auth": {
+    "login": "Sign In", "register": "Create Account", "logout": "Sign Out", "email": "Email Address", "password": "Password", "name": "Full Name", "confirm_password": "Confirm Password", "forgot_password": "Forgot password?", "no_account": "Don't have an account?", "have_account": "Already have an account?", "google_login": "Continue with Google", "apple_login": "Continue with Apple", "welcome_back": "Welcome Back", "create_account": "Create Account"
+  },
+  "ziwei": {
+    "title": "Zi Wei Dou Shu Chart", "subtitle": "Enter your birth details to reveal your destiny", "birth_date": "Birth Date", "birth_hour": "Birth Hour", "birth_location": "Birth Location", "calculate": "Generate Chart", "life_palace": "Life Palace", "wealth_palace": "Wealth Palace", "spouse_palace": "Spouse Palace", "career_palace": "Career Palace", "siblings_palace": "Siblings Palace", "children_palace": "Children Palace", "health_palace": "Health Palace", "travel_palace": "Travel Palace", "friends_palace": "Friends Palace", "property_palace": "Property Palace", "fortune_palace": "Fortune Palace", "parents_palace": "Parents Palace",
+    "hours": {
+      "zi": "Zi (23:00-01:00)", "chou": "Chou (01:00-03:00)", "yin": "Yin (03:00-05:00)", "mao": "Mao (05:00-07:00)", "chen": "Chen (07:00-09:00)", "si": "Si (09:00-11:00)", "wu": "Wu (11:00-13:00)", "wei": "Wei (13:00-15:00)", "shen": "Shen (15:00-17:00)", "you": "You (17:00-19:00)", "xu": "Xu (19:00-21:00)", "hai": "Hai (21:00-23:00)"
+    },
+    "premium_only": "Upgrade to Premium to unlock full chart interpretations",
+    "save_chart": "Save Chart", "chart_saved": "Chart Saved"
+  },
+  "tarot": {
+    "title": "Tarot Reading", "daily": "Daily Card", "three_card": "Three Card Spread", "celtic_cross": "Celtic Cross", "draw": "Draw Cards", "flip": "Reveal", "upright": "Upright", "reversed": "Reversed", "past": "Past", "present": "Present", "future": "Future", "premium_only": "Celtic Cross is available for Premium members", "history": "Reading History", "meaning": "Meaning"
+  },
+  "shop": {
+    "title": "Shop", "add_to_cart": "Add to Cart", "cart": "Cart", "checkout": "Checkout", "empty_cart": "Your cart is empty", "total": "Total", "digital": "Digital", "physical": "Physical", "in_stock": "In Stock", "out_of_stock": "Out of Stock", "promo_code": "Promo Code", "apply": "Apply", "order_summary": "Order Summary", "payment": "Payment", "stripe_note": "Payments securely processed by Stripe (Test Mode)", "orders": "My Orders", "order_status": { "pending": "Pending", "paid": "Paid", "shipped": "Shipped", "delivered": "Delivered" }
+  },
+  "news": {
+    "title": "News & Updates", "categories": { "all": "All", "astrology": "Astrology", "tarot": "Tarot", "platform": "Platform", "promotion": "Promotions" }, "read_more": "Read More", "latest": "Latest"
+  },
+  "profile": {
+    "title": "My Account", "membership": "Membership", "free": "Free", "premium": "Premium", "upgrade": "Upgrade to Premium", "birth_info": "Birth Information", "language": "Language", "notifications": "Notifications", "saved_charts": "Saved Charts", "dark_mode": "Dark Mode", "save": "Save Changes"
+  },
+  "notifications": {
+    "title": "Notifications", "empty": "No new notifications", "new_article": "New article published", "promotion": "Limited time offer", "daily_card": "Your daily tarot is ready"
+  },
+  "membership": {
+    "free_features": ["1 free daily tarot card", "Basic Zi Wei chart (3 palaces)", "Browse the shop"],
+    "premium_features": ["Full 12-palace Zi Wei chart", "Decade & annual luck cycles", "3-card & Celtic Cross spreads", "Unlimited reading history", "Exclusive member discounts"]
+  },
+  "common": {
+    "loading": "Loading...", "error": "Something went wrong", "retry": "Try Again", "back": "Back", "close": "Close", "save": "Save", "cancel": "Cancel", "confirm": "Confirm", "premium_badge": "Premium", "free_badge": "Free", "mock_notice": "Demo Mode: Using mock data"
+  }
+}
