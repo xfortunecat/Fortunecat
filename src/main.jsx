@@ -12,6 +12,8 @@ import { TarotSelectorPage, TarotDailyPage, TarotSpreadPage } from './pages/Taro
 import { ShopPage, ProductPage, CartPage, CheckoutPage, OrdersPage } from './pages/ShopPages'
 import { NewsPage, NewsArticlePage } from './pages/NewsPages'
 import ProfilePage from './pages/ProfilePage'
+import NotFoundPage from './pages/NotFoundPage'
+import AdminPage from './pages/AdminPage'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -35,6 +37,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:slug" element={<NewsArticlePage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

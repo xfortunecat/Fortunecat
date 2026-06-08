@@ -1,17 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useStore } from '../lib/store'
 import i18n from '../i18n'
 import clsx from 'clsx'
 
+function NewsSkeleton() {
+  return (
+    <div className="card-glass p-5 flex items-start gap-4">
+      <div className="skeleton w-10 h-10 rounded-lg shrink-0" />
+      <div className="flex-1 space-y-2">
+        <div className="skeleton h-3 w-1/3 rounded" />
+        <div className="skeleton h-4 w-full rounded" />
+        <div className="skeleton h-3 w-4/5 rounded" />
+      </div>
+    </div>
+  )
+}
+
 export function NewsPage() {
   const { t } = useTranslation()
   const { posts } = useStore()
   const [cat, setCat] = useState('all')
+  const [loading, setLoading] = useState(true)
   const lang = i18n.language
   const categories = ['all', 'astrology', 'tarot', 'platform', 'promotion']
   const filtered = cat === 'all' ? posts : posts.filter(p => p.category === cat)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 700)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="page-container space-y-6">
@@ -26,7 +45,9 @@ export function NewsPage() {
         ))}
       </div>
       <div className="space-y-4">
-        {filtered.map(post => {
+        {loading ? (
+          Array.from({ length: 3 }).map((_, i) => <NewsSkeleton key={i} />)
+        ) : filtered.map(post => {
           const title = lang === 'zh-CN' ? post.title_zhCN : lang === 'en' ? post.title_en : post.title_zhTW
           const body = lang === 'zh-CN' ? post.body_zhCN : lang === 'en' ? post.body_en : post.body_zhTW
           return (
@@ -49,6 +70,7 @@ export function NewsPage() {
     </div>
   )
 }
+
 
 export function NewsArticlePage() {
   const { t } = useTranslation()

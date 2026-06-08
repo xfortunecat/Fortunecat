@@ -39,5 +39,11 @@
   },
   "common": {
     "loading": "Loading...", "error": "Something went wrong", "retry": "Try Again", "back": "Back", "close": "Close", "save": "Save", "cancel": "Cancel", "confirm": "Confirm", "premium_badge": "Premium", "free_badge": "Free", "mock_notice": "Demo Mode: Using mock data"
+  },
+  "notfound": {
+    "title": "Lost in the Stars", "message": "This page has drifted beyond the celestial map.", "back_home": "Return to Home"
+  },
+  "admin": {
+    "title": "Admin Panel", "password_prompt": "Enter the admin password to continue.", "password": "Password", "wrong_password": "Incorrect password.", "unlock": "Unlock", "demo_hint": "Demo password: admin1234", "mock_reset_hint": "Changes reset on refresh", "tab_news": "News", "tab_shop": "Shop", "tab_users": "Users", "new_post": "New Post", "posts_count": "posts", "active": "Active", "inactive": "Inactive"
   }
 }

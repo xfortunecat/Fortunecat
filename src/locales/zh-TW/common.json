@@ -39,5 +39,11 @@
   },
   "common": {
     "loading": "載入中...", "error": "發生錯誤", "retry": "重試", "back": "返回", "close": "關閉", "save": "儲存", "cancel": "取消", "confirm": "確認", "premium_badge": "尊享", "free_badge": "免費", "mock_notice": "演示模式：使用模擬資料"
+  },
+  "notfound": {
+    "title": "迷失於星空之中", "message": "此頁面已飄離星象地圖之外。", "back_home": "返回首頁"
+  },
+  "admin": {
+    "title": "管理後台", "password_prompt": "請輸入管理員密碼以繼續。", "password": "密碼", "wrong_password": "密碼錯誤。", "unlock": "解鎖", "demo_hint": "演示密碼：admin1234", "mock_reset_hint": "更改在重新整理後重置", "tab_news": "文章", "tab_shop": "商店", "tab_users": "用戶", "new_post": "新增文章", "posts_count": "篇文章", "active": "上架", "inactive": "下架"
   }
 }
