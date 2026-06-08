@@ -9,14 +9,8 @@ import clsx from 'clsx'
 
 const fmt = (cents) => `$${(cents / 100).toFixed(0)}`
 
-function useProductName(p) {
-  const lang = i18n.language
-  return lang === 'zh-CN' ? p.name_zhCN : lang === 'en' ? p.name_en : p.name_zhTW
-}
-function useProductDesc(p) {
-  const lang = i18n.language
-  return lang === 'zh-CN' ? p.description_zhCN : lang === 'en' ? p.description_en : p.description_zhTW
-}
+const getLocalName = (p, lang) => lang === 'zh-CN' ? p.name_zhCN : lang === 'en' ? p.name_en : p.name_zhTW
+const getLocalDesc = (p, lang) => lang === 'zh-CN' ? p.description_zhCN : lang === 'en' ? p.description_en : p.description_zhTW
 
 // ── Shop Listing ──────────────────────────────────────────────────────────────
 export function ShopPage() {
@@ -24,6 +18,7 @@ export function ShopPage() {
   const { addToCart } = useStore()
   const [filter, setFilter] = useState('all')
   const [toast, setToast] = useState(null)
+  const lang = i18n.language
 
   const handleAdd = (p) => {
     addToCart(p)
@@ -55,8 +50,8 @@ export function ShopPage() {
 
       <div className="grid grid-cols-2 gap-3">
         {filtered.map(p => {
-          const name = useProductName(p)
-          const desc = useProductDesc(p)
+          const name = getLocalName(p, lang)
+          const desc = getLocalDesc(p, lang)
           return (
             <div key={p.id} className="card-glass p-4 flex flex-col animate-fade-up">
               <Link to={`/shop/${p.id}`}>
@@ -84,13 +79,14 @@ export function ProductPage() {
   const { id } = useParams()
   const { addToCart } = useStore()
   const navigate = useNavigate()
+  const lang = i18n.language
   const product = PRODUCTS.find(p => p.id === id)
   const [added, setAdded] = useState(false)
 
   if (!product) return <div className="page-container"><p className="text-ivory/40">{t('common.error')}</p></div>
 
-  const name = useProductName(product)
-  const desc = useProductDesc(product)
+  const name = getLocalName(product, lang)
+  const desc = getLocalDesc(product, lang)
 
   const handleAdd = () => {
     addToCart(product)

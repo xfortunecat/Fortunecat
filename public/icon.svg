@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="114" fill="#0B0F2A"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#C9A84C" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#C9A84C" stroke-width="1" stroke-opacity="0.2"/>
+  <!-- Star symbol -->
+  <text x="256" y="310" text-anchor="middle" font-size="200" font-family="serif" fill="#C9A84C">✦</text>
+  <!-- Orbital dots -->
+  <circle cx="256" cy="96" r="5" fill="#C9A84C" opacity="0.6"/>
+  <circle cx="416" cy="256" r="5" fill="#C9A84C" opacity="0.6"/>
+  <circle cx="256" cy="416" r="5" fill="#C9A84C" opacity="0.6"/>
+  <circle cx="96" cy="256" r="5" fill="#C9A84C" opacity="0.6"/>
+</svg>

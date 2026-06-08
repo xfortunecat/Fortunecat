@@ -4,12 +4,25 @@
 
 @layer base {
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    /* Prevent elastic overscroll — native app feel */
+    overscroll-behavior: none;
+    height: 100%;
+  }
   body {
     @apply bg-navy-900 text-ivory font-body;
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3Ccircle cx='0' cy='0' r='0.5'/%3E%3Ccircle cx='60' cy='0' r='0.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    min-height: 100vh;
+    min-height: 100%;
+    height: 100%;
+    overscroll-behavior: none;
+    /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
   }
+  /* Faster tap response — no 300ms delay */
+  a, button { touch-action: manipulation; }
+  /* Prevent text selection on UI chrome */
+  nav, header { user-select: none; -webkit-user-select: none; }
 }
 
 @layer components {
@@ -56,3 +69,15 @@
 
 /* Bottom nav safe area */
 .bottom-nav { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Gold shimmer skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #111638 25%, #1a2050 50%, #111638 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }

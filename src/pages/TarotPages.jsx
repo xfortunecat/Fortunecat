@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { TAROT_DECK } from '../data/mockData'
 import { useStore } from '../lib/store'
 import i18n from '../i18n'
@@ -130,8 +130,8 @@ export function TarotDailyPage() {
 export function TarotSpreadPage() {
   const { t } = useTranslation()
   const lang = i18n.language
-  const params = new URLSearchParams(window.location.search)
-  const type = params.get('type') || 'three'
+  const [searchParams] = useSearchParams()
+  const type = searchParams.get('type') || 'three'
   const count = type === 'celtic' ? 10 : 3
   const [cards] = useState(() => drawCards(count))
   const [flipped, setFlipped] = useState([])
