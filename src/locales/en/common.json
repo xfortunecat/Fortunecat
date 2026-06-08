@@ -16,7 +16,7 @@
       "zi": "Zi (23:00-01:00)", "chou": "Chou (01:00-03:00)", "yin": "Yin (03:00-05:00)", "mao": "Mao (05:00-07:00)", "chen": "Chen (07:00-09:00)", "si": "Si (09:00-11:00)", "wu": "Wu (11:00-13:00)", "wei": "Wei (13:00-15:00)", "shen": "Shen (15:00-17:00)", "you": "You (17:00-19:00)", "xu": "Xu (19:00-21:00)", "hai": "Hai (21:00-23:00)"
     },
     "premium_only": "Upgrade to Premium to unlock full chart interpretations",
-    "save_chart": "Save Chart", "chart_saved": "Chart Saved"
+    "save_chart": "Save Chart", "chart_saved": "Chart Saved", "stars_in_palace": "Stars in this Palace"
   },
   "tarot": {
     "title": "Tarot Reading", "daily": "Daily Card", "three_card": "Three Card Spread", "celtic_cross": "Celtic Cross", "draw": "Draw Cards", "flip": "Reveal", "upright": "Upright", "reversed": "Reversed", "past": "Past", "present": "Present", "future": "Future", "premium_only": "Celtic Cross is available for Premium members", "history": "Reading History", "meaning": "Meaning"
