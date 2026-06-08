@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { POSTS } from '../data/mockData'
+import { useStore } from '../lib/store'
 import i18n from '../i18n'
 import clsx from 'clsx'
 
 export function NewsPage() {
   const { t } = useTranslation()
+  const { posts } = useStore()
   const [cat, setCat] = useState('all')
   const lang = i18n.language
   const categories = ['all', 'astrology', 'tarot', 'platform', 'promotion']
-  const filtered = cat === 'all' ? POSTS : POSTS.filter(p => p.category === cat)
+  const filtered = cat === 'all' ? posts : posts.filter(p => p.category === cat)
 
   return (
     <div className="page-container space-y-6">
@@ -53,8 +54,9 @@ export function NewsArticlePage() {
   const { t } = useTranslation()
   const { slug } = useParams()
   const navigate = useNavigate()
+  const { posts } = useStore()
   const lang = i18n.language
-  const post = POSTS.find(p => p.slug === slug)
+  const post = posts.find(p => p.slug === slug)
 
   if (!post) return <div className="page-container"><p className="text-ivory/40">{t('common.error')}</p></div>
 

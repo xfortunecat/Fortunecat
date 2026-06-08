@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { PRODUCTS } from '../data/mockData'
 import { useStore } from '../lib/store'
 import i18n from '../i18n'
-import { ShoppingCart, Plus, Minus, Trash2, Tag, CreditCard } from 'lucide-react'
+import { ShoppingCart, Plus, Minus, Trash2, Tag, CreditCard, Search } from 'lucide-react'
 import clsx from 'clsx'
 
 const fmt = (cents) => `$${(cents / 100).toFixed(0)}`
@@ -12,13 +11,36 @@ const fmt = (cents) => `$${(cents / 100).toFixed(0)}`
 const getLocalName = (p, lang) => lang === 'zh-CN' ? p.name_zhCN : lang === 'en' ? p.name_en : p.name_zhTW
 const getLocalDesc = (p, lang) => lang === 'zh-CN' ? p.description_zhCN : lang === 'en' ? p.description_en : p.description_zhTW
 
+// ── Skeleton ──────────────────────────────────────────────────────────────────
+function ProductSkeleton() {
+  return (
+    <div className="card-glass p-4 flex flex-col gap-2">
+      <div className="skeleton h-10 w-10 mx-auto rounded-lg" />
+      <div className="skeleton h-3 w-3/4 rounded" />
+      <div className="skeleton h-3 w-full rounded" />
+      <div className="skeleton h-3 w-1/2 rounded" />
+      <div className="flex justify-between mt-2">
+        <div className="skeleton h-4 w-12 rounded" />
+        <div className="skeleton h-7 w-20 rounded" />
+      </div>
+    </div>
+  )
+}
+
 // ── Shop Listing ──────────────────────────────────────────────────────────────
 export function ShopPage() {
   const { t } = useTranslation()
-  const { addToCart } = useStore()
+  const { addToCart, products } = useStore()
   const [filter, setFilter] = useState('all')
   const [toast, setToast] = useState(null)
+  const [query, setQuery] = useState('')
+  const [loading, setLoading] = useState(true)
   const lang = i18n.language
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 600)
+    return () => clearTimeout(t)
+  }, [])
 
   const handleAdd = (p) => {
     addToCart(p)
@@ -26,7 +48,14 @@ export function ShopPage() {
     setTimeout(() => setToast(null), 1500)
   }
 
-  const filtered = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.type === filter)
+  const activeProducts = products.filter(p => p.active)
+  const filtered = activeProducts
+    .filter(p => filter === 'all' || p.type === filter)
+    .filter(p => {
+      if (!query.trim()) return true
+      const name = getLocalName(p, lang).toLowerCase()
+      return name.includes(query.toLowerCase())
+    })
 
   return (
     <div className="page-container space-y-6">
@@ -37,19 +66,34 @@ export function ShopPage() {
         </Link>
       </div>
 
+      {/* Search */}
+      <div className="relative">
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-ivory/30" />
+        <input
+          className="input-field pl-9 text-sm"
+          placeholder={t('shop.search_placeholder')}
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+        />
+      </div>
+
+      {/* Filter tabs */}
       <div className="flex gap-2">
         {['all', 'digital', 'physical'].map(f => (
           <button key={f} onClick={() => setFilter(f)}
             className={clsx('px-3 py-1.5 rounded-full text-xs font-medium transition-colors',
               filter === f ? 'bg-gold-400 text-navy-900' : 'bg-navy-800 text-ivory/50 hover:text-ivory')}>
-            {t(`shop.${f === 'all' ? 'title' : f}`).split(' ')[0]}
-            {f === 'all' ? '' : f === 'digital' ? ` ${t('shop.digital')}` : ` ${t('shop.physical')}`}
+            {f === 'all' ? t('shop.title') : f === 'digital' ? t('shop.digital') : t('shop.physical')}
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        {filtered.map(p => {
+        {loading ? (
+          Array.from({ length: 4 }).map((_, i) => <ProductSkeleton key={i} />)
+        ) : filtered.length === 0 ? (
+          <div className="col-span-2 text-center py-10 text-ivory/40 text-sm">{t('shop.no_results')}</div>
+        ) : filtered.map(p => {
           const name = getLocalName(p, lang)
           const desc = getLocalDesc(p, lang)
           return (
@@ -77,10 +121,10 @@ export function ShopPage() {
 export function ProductPage() {
   const { t } = useTranslation()
   const { id } = useParams()
-  const { addToCart } = useStore()
+  const { addToCart, products } = useStore()
   const navigate = useNavigate()
   const lang = i18n.language
-  const product = PRODUCTS.find(p => p.id === id)
+  const product = products.find(p => p.id === id)
   const [added, setAdded] = useState(false)
 
   if (!product) return <div className="page-container"><p className="text-ivory/40">{t('common.error')}</p></div>
@@ -109,7 +153,7 @@ export function ProductPage() {
           <p className="text-xs text-emerald-400">✓ {t('shop.in_stock')} ({product.stock})</p>
         )}
         <button onClick={handleAdd} className={clsx('btn-gold w-full flex items-center justify-center gap-2', added && 'bg-emerald-400 hover:bg-emerald-400')}>
-          {added ? '✓ Added!' : <><ShoppingCart size={16} /> {t('shop.add_to_cart')}</>}
+          {added ? '✓ ' + t('shop.added') : <><ShoppingCart size={16} /> {t('shop.add_to_cart')}</>}
         </button>
         <Link to="/shop/cart" className="btn-outline w-full flex items-center justify-center gap-2 text-sm">
           {t('shop.cart')}
@@ -147,11 +191,11 @@ export function CartPage() {
                 <p className="text-gold-400 text-sm">{fmt(item.price)}</p>
               </div>
               <div className="flex items-center gap-2">
-                <button onClick={() => updateQty(item.id, item.qty - 1)} className="w-6 h-6 rounded-full bg-navy-700 flex items-center justify-center text-ivory/60 hover:text-ivory"><Minus size={10} /></button>
+                <button onClick={() => updateQty(item.id, item.qty - 1)} className="w-6 h-6 rounded-full bg-navy-700 flex items-center justify-center text-ivory/60 hover:text-ivory" aria-label="Decrease"><Minus size={10} /></button>
                 <span className="text-ivory/80 text-sm w-4 text-center">{item.qty}</span>
-                <button onClick={() => updateQty(item.id, item.qty + 1)} className="w-6 h-6 rounded-full bg-navy-700 flex items-center justify-center text-ivory/60 hover:text-ivory"><Plus size={10} /></button>
+                <button onClick={() => updateQty(item.id, item.qty + 1)} className="w-6 h-6 rounded-full bg-navy-700 flex items-center justify-center text-ivory/60 hover:text-ivory" aria-label="Increase"><Plus size={10} /></button>
               </div>
-              <button onClick={() => removeFromCart(item.id)} className="text-red-400/50 hover:text-red-400 ml-1"><Trash2 size={16} /></button>
+              <button onClick={() => removeFromCart(item.id)} className="text-red-400/50 hover:text-red-400 ml-1" aria-label="Remove"><Trash2 size={16} /></button>
             </div>
           )
         })}
@@ -170,15 +214,22 @@ export function CartPage() {
 // ── Checkout ──────────────────────────────────────────────────────────────────
 export function CheckoutPage() {
   const { t } = useTranslation()
-  const { cart, cartTotal, clearCart, addOrder, user } = useStore()
+  const { cart, cartTotal, clearCart, addOrder, user, updateUser } = useStore()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
   const [promo, setPromo] = useState('')
   const [promoApplied, setPromoApplied] = useState(false)
+  const [promoError, setPromoError] = useState(false)
 
   const handlePromo = () => {
-    if (promo.toUpperCase() === 'SUMMER2026') setPromoApplied(true)
+    if (promo.trim().toUpperCase() === 'SUMMER2026') {
+      setPromoApplied(true)
+      setPromoError(false)
+    } else {
+      setPromoError(true)
+      setPromoApplied(false)
+    }
   }
 
   const discount = promoApplied ? Math.round(cartTotal() * 0.2) : 0
@@ -188,9 +239,20 @@ export function CheckoutPage() {
     setLoading(true)
     await new Promise(r => setTimeout(r, 1500))
     addOrder({ id: `ORD-${Date.now()}`, items: [...cart], total: finalTotal, status: 'paid', createdAt: new Date().toISOString() })
+
+    // Feature 3: auto-upgrade to premium if purchasing a membership
+    const buyingPremium = cart.some(i => i.id === 'p1' || i.id === 'p2')
+    if (buyingPremium && user) {
+      const isAnnual = cart.some(i => i.id === 'p2')
+      const expiry = new Date()
+      if (isAnnual) expiry.setFullYear(expiry.getFullYear() + 1)
+      else expiry.setMonth(expiry.getMonth() + 1)
+      updateUser({ tier: 'premium', premiumExpiry: expiry.toISOString() })
+    }
+
     clearCart()
-    setDone(true)
     setLoading(false)
+    setDone(true)
   }
 
   if (done) return (
@@ -198,6 +260,11 @@ export function CheckoutPage() {
       <div className="text-6xl animate-float">✨</div>
       <h2 className="font-display text-2xl text-gold-400">{t('shop.order_complete')}</h2>
       <p className="text-ivory/50 text-sm">{t('shop.order_complete_thanks')}</p>
+      {user?.tier === 'premium' && (
+        <div className="bg-gold-400/10 border border-gold-400/30 rounded-xl px-6 py-3 text-gold-400 text-sm font-semibold animate-pulse-gold">
+          👑 {t('shop.premium_unlocked')}
+        </div>
+      )}
       <Link to="/" className="btn-gold mt-2">{t('shop.back_home')}</Link>
     </div>
   )
@@ -226,10 +293,11 @@ export function CheckoutPage() {
       <div className="card-glass p-5 space-y-3">
         <h3 className="text-gold-400/70 text-xs uppercase tracking-wider">{t('shop.promo_code')}</h3>
         <div className="flex gap-2">
-          <input className="input-field flex-1" placeholder="e.g. SUMMER2026" value={promo} onChange={e => setPromo(e.target.value)} />
-          <button onClick={handlePromo} className="btn-outline text-sm px-4 py-2 whitespace-nowrap">{t('shop.apply')}</button>
+          <input className="input-field flex-1" placeholder="e.g. SUMMER2026" value={promo} onChange={e => { setPromo(e.target.value); setPromoError(false) }} />
+          <button onClick={handlePromo} disabled={promoApplied} className="btn-outline text-sm px-4 py-2 whitespace-nowrap">{t('shop.apply')}</button>
         </div>
-        {promoApplied && <p className="text-emerald-400 text-xs">✓ 20% discount applied!</p>}
+        {promoApplied && <p className="text-emerald-400 text-xs">✓ {t('shop.promo_applied')}</p>}
+        {promoError && <p className="text-red-400 text-xs">{t('shop.promo_invalid')}</p>}
       </div>
 
       <div className="card-glass p-5 space-y-4">
@@ -240,7 +308,7 @@ export function CheckoutPage() {
           <p className="text-ivory/20 text-xs mt-1">Use any card: 4242 4242 4242 4242</p>
         </div>
         <button onClick={handlePay} disabled={loading || cart.length === 0} className="btn-gold w-full flex items-center justify-center gap-2">
-          {loading ? <><span className="animate-spin">✦</span> Processing...</> : <><CreditCard size={16} /> Pay {fmt(finalTotal)}</>}
+          {loading ? <><span className="animate-spin">✦</span> {t('shop.processing')}</> : <><CreditCard size={16} /> {t('shop.pay')} {fmt(finalTotal)}</>}
         </button>
       </div>
     </div>
@@ -253,9 +321,10 @@ export function OrdersPage() {
   const { orders } = useStore()
 
   if (orders.length === 0) return (
-    <div className="page-container flex flex-col items-center justify-center min-h-[60vh] gap-4">
-      <div className="text-5xl">📦</div>
-      <p className="text-ivory/40">{t('common.loading').replace('...', '')} — no orders yet</p>
+    <div className="page-container flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center">
+      <div className="text-5xl animate-float">📦</div>
+      <p className="text-ivory/60 text-lg font-semibold">{t('shop.no_orders')}</p>
+      <p className="text-ivory/30 text-sm max-w-xs">{t('shop.no_orders_hint')}</p>
       <Link to="/shop" className="btn-gold">{t('shop.title')}</Link>
     </div>
   )
@@ -275,7 +344,7 @@ export function OrdersPage() {
             </span>
           </div>
           <div className="border-t border-gold-400/10 pt-2 flex justify-between text-sm">
-            <span className="text-ivory/50">{order.items.length} item{order.items.length > 1 ? 's' : ''}</span>
+            <span className="text-ivory/50">{order.items.length} {order.items.length > 1 ? t('shop.items') : t('shop.item')}</span>
             <span className="text-gold-400 font-semibold">{fmt(order.total)}</span>
           </div>
         </div>

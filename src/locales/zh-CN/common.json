@@ -19,16 +19,16 @@
     "save_chart": "保存命盘", "chart_saved": "命盘已保存", "stars_in_palace": "本宫星曜"
   },
   "tarot": {
-    "title": "塔罗牌占卜", "daily": "每日一牌", "three_card": "三牌展开", "celtic_cross": "凯尔特十字", "draw": "抽牌", "flip": "翻牌", "upright": "正位", "reversed": "逆位", "past": "过去", "present": "现在", "future": "未来", "premium_only": "凯尔特十字为尊享会员专属", "history": "占卜记录", "meaning": "牌义"
+    "title": "塔罗牌占卜", "daily": "每日一牌", "three_card": "三牌展开", "celtic_cross": "凯尔特十字", "draw": "抽牌", "flip": "翻牌", "flip_all": "全部翻牌", "upright": "正位", "reversed": "逆位", "past": "过去", "present": "现在", "future": "未来", "premium_only": "凯尔特十字为尊享会员专属", "history": "占卜记录", "meaning": "牌义", "login_to_see": "登录以查看牌义", "no_history": "暂无占卜记录 — 进行您的第一次占卜！", "history_free_limit": "免费会员可查看最近3条记录，升级以查看完整记录。"
   },
   "shop": {
-    "title": "商店", "add_to_cart": "加入购物车", "cart": "购物车", "checkout": "结账", "empty_cart": "购物车是空的", "total": "合计", "digital": "数字产品", "physical": "实体商品", "in_stock": "有货", "out_of_stock": "缺货", "promo_code": "优惠码", "apply": "使用", "order_summary": "订单摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全处理（测试模式）", "orders": "我的订单", "order_status": { "pending": "待处理", "paid": "已付款", "shipped": "已发货", "delivered": "已送达" }, "order_complete": "订单完成！", "order_complete_thanks": "感谢您的购买。", "back_home": "返回首页"
+    "title": "商店", "add_to_cart": "加入购物车", "added": "已加入！", "cart": "购物车", "checkout": "结账", "empty_cart": "购物车是空的", "total": "合计", "digital": "数字产品", "physical": "实体商品", "in_stock": "有货", "out_of_stock": "缺货", "promo_code": "优惠码", "apply": "使用", "promo_applied": "已使用8折优惠！", "promo_invalid": "无效的优惠码。", "order_summary": "订单摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全处理（测试模式）", "processing": "处理中...", "pay": "付款", "orders": "我的订单", "no_orders": "暂无订单", "no_orders_hint": "您的订单记录将在首次购买后显示于此。", "item": "件商品", "items": "件商品", "search_placeholder": "搜索商品...", "no_results": "未找到相关商品。", "order_status": { "pending": "待处理", "paid": "已付款", "shipped": "已发货", "delivered": "已送达" }, "order_complete": "订单完成！", "order_complete_thanks": "感谢您的购买。", "premium_unlocked": "尊享版已解锁 — 尽享所有功能！", "back_home": "返回首页"
   },
   "news": {
     "title": "最新资讯", "categories": { "all": "全部", "astrology": "星象解析", "tarot": "塔罗心得", "platform": "平台公告", "promotion": "优惠活动" }, "read_more": "阅读更多", "latest": "最新"
   },
   "profile": {
-    "title": "我的账户", "membership": "会员等级", "free": "免费版", "premium": "尊享版", "upgrade": "升级尊享版", "birth_info": "出生资料", "language": "语言设置", "notifications": "通知设置", "saved_charts": "保存的命盘", "dark_mode": "深色模式", "save": "保存"
+    "title": "我的账户", "membership": "会员等级", "free": "免费版", "premium": "尊享版", "upgrade": "升级尊享版", "expires": "到期", "birth_info": "出生资料", "language": "语言设置", "notifications": "通知设置", "saved_charts": "保存的命盘", "dark_mode": "深色模式", "save": "保存", "notif_daily_card": "每日塔罗提醒", "notif_new_article": "新文章通知", "notif_promotions": "优惠活动通知", "notif_orders": "订单更新通知"
   },
   "notifications": {
     "title": "通知", "empty": "没有新通知", "new_article": "有新文章", "promotion": "限时优惠", "daily_card": "今日塔罗已准备好"

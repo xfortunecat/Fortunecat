@@ -19,16 +19,16 @@
     "save_chart": "儲存命盤", "chart_saved": "命盤已儲存", "stars_in_palace": "本宮星曜"
   },
   "tarot": {
-    "title": "塔羅牌占卜", "daily": "每日一牌", "three_card": "三牌展開", "celtic_cross": "凱爾特十字", "draw": "抽牌", "flip": "翻牌", "upright": "正位", "reversed": "逆位", "past": "過去", "present": "現在", "future": "未來", "premium_only": "凱爾特十字為尊享會員專屬", "history": "占卜記錄", "meaning": "牌義"
+    "title": "塔羅牌占卜", "daily": "每日一牌", "three_card": "三牌展開", "celtic_cross": "凱爾特十字", "draw": "抽牌", "flip": "翻牌", "flip_all": "全部翻牌", "upright": "正位", "reversed": "逆位", "past": "過去", "present": "現在", "future": "未來", "premium_only": "凱爾特十字為尊享會員專屬", "history": "占卜記錄", "meaning": "牌義", "login_to_see": "登入以查看牌義", "no_history": "尚無占卜記錄 — 進行您的第一次占卜！", "history_free_limit": "免費會員可查看最近3條記錄，升級以查看完整記錄。"
   },
   "shop": {
-    "title": "商店", "add_to_cart": "加入購物車", "cart": "購物車", "checkout": "結帳", "empty_cart": "購物車是空的", "total": "合計", "digital": "數位產品", "physical": "實體商品", "in_stock": "有貨", "out_of_stock": "缺貨", "promo_code": "優惠碼", "apply": "套用", "order_summary": "訂單摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全處理（測試模式）", "orders": "我的訂單", "order_status": { "pending": "待處理", "paid": "已付款", "shipped": "已發貨", "delivered": "已送達" }, "order_complete": "訂單完成！", "order_complete_thanks": "感謝您的購買。", "back_home": "返回首頁"
+    "title": "商店", "add_to_cart": "加入購物車", "added": "已加入！", "cart": "購物車", "checkout": "結帳", "empty_cart": "購物車是空的", "total": "合計", "digital": "數位產品", "physical": "實體商品", "in_stock": "有貨", "out_of_stock": "缺貨", "promo_code": "優惠碼", "apply": "套用", "promo_applied": "已套用8折優惠！", "promo_invalid": "無效的優惠碼。", "order_summary": "訂單摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全處理（測試模式）", "processing": "處理中...", "pay": "付款", "orders": "我的訂單", "no_orders": "尚無訂單", "no_orders_hint": "您的訂單記錄將在首次購買後顯示於此。", "item": "件商品", "items": "件商品", "search_placeholder": "搜尋商品...", "no_results": "找不到相關商品。", "order_status": { "pending": "待處理", "paid": "已付款", "shipped": "已發貨", "delivered": "已送達" }, "order_complete": "訂單完成！", "order_complete_thanks": "感謝您的購買。", "premium_unlocked": "尊享版已解鎖 — 盡享所有功能！", "back_home": "返回首頁"
   },
   "news": {
     "title": "最新消息", "categories": { "all": "全部", "astrology": "星象解析", "tarot": "塔羅心得", "platform": "平台公告", "promotion": "優惠活動" }, "read_more": "閱讀更多", "latest": "最新"
   },
   "profile": {
-    "title": "我的帳戶", "membership": "會員等級", "free": "免費版", "premium": "尊享版", "upgrade": "升級尊享版", "birth_info": "出生資料", "language": "語言設定", "notifications": "通知設定", "saved_charts": "儲存的命盤", "dark_mode": "深色模式", "save": "儲存"
+    "title": "我的帳戶", "membership": "會員等級", "free": "免費版", "premium": "尊享版", "upgrade": "升級尊享版", "expires": "到期", "birth_info": "出生資料", "language": "語言設定", "notifications": "通知設定", "saved_charts": "儲存的命盤", "dark_mode": "深色模式", "save": "儲存", "notif_daily_card": "每日塔羅提醒", "notif_new_article": "新文章通知", "notif_promotions": "優惠活動通知", "notif_orders": "訂單更新通知"
   },
   "notifications": {
     "title": "通知", "empty": "沒有新通知", "new_article": "有新文章", "promotion": "限時優惠", "daily_card": "今日塔羅已準備好"
