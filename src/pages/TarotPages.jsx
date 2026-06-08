@@ -129,6 +129,7 @@ export function TarotDailyPage() {
 // ── Spread ────────────────────────────────────────────────────────────────────
 export function TarotSpreadPage() {
   const { t } = useTranslation()
+  const lang = i18n.language
   const params = new URLSearchParams(window.location.search)
   const type = params.get('type') || 'three'
   const count = type === 'celtic' ? 10 : 3
@@ -163,7 +164,7 @@ export function TarotSpreadPage() {
       )}
       {allFlipped && (
         <button onClick={() => { setFlipped([]); setAllFlipped(false) }} className="btn-outline w-full flex items-center justify-center gap-2">
-          <RotateCcw size={16} /> {lang => lang === 'en' ? 'New Reading' : '重新占卜'}
+          <RotateCcw size={16} /> {lang === 'en' ? 'New Reading' : '重新占卜'}
         </button>
       )}
     </div>

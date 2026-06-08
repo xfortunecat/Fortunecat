@@ -200,9 +200,9 @@ export function CheckoutPage() {
   if (done) return (
     <div className="page-container flex flex-col items-center justify-center min-h-[70vh] gap-4 text-center">
       <div className="text-6xl animate-float">✨</div>
-      <h2 className="font-display text-2xl text-gold-400">Order Complete!</h2>
-      <p className="text-ivory/50 text-sm">Thank you for your purchase.</p>
-      <Link to="/" className="btn-gold mt-2">Back to Home</Link>
+      <h2 className="font-display text-2xl text-gold-400">{t('shop.order_complete')}</h2>
+      <p className="text-ivory/50 text-sm">{t('shop.order_complete_thanks')}</p>
+      <Link to="/" className="btn-gold mt-2">{t('shop.back_home')}</Link>
     </div>
   )
 

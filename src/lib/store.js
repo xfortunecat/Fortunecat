@@ -6,7 +6,7 @@ export const useStore = create((set, get) => ({
   user: null,
   isAuthenticated: false,
   login: (userData) => set({ user: userData, isAuthenticated: true }),
-  logout: () => set({ user: null, isAuthenticated: false, cart: [] }),
+  logout: () => set({ user: null, isAuthenticated: false, cart: [], orders: [], savedCharts: [] }),
   updateUser: (data) => set((s) => ({ user: { ...s.user, ...data } })),
 
   // ── Cart ──

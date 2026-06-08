@@ -21,8 +21,8 @@ export function ZiweiInputPage() {
     e.preventDefault()
     setLoading(true)
     await new Promise(r => setTimeout(r, 1200))
-    navigate('/readings/ziwei/chart', { state: { form, chart: MOCK_CHART } })
     setLoading(false)
+    navigate('/readings/ziwei/chart', { state: { form, chart: MOCK_CHART } })
   }
 
   return (

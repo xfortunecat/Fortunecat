@@ -22,7 +22,7 @@
     "title": "塔羅牌占卜", "daily": "每日一牌", "three_card": "三牌展開", "celtic_cross": "凱爾特十字", "draw": "抽牌", "flip": "翻牌", "upright": "正位", "reversed": "逆位", "past": "過去", "present": "現在", "future": "未來", "premium_only": "凱爾特十字為尊享會員專屬", "history": "占卜記錄", "meaning": "牌義"
   },
   "shop": {
-    "title": "商店", "add_to_cart": "加入購物車", "cart": "購物車", "checkout": "結帳", "empty_cart": "購物車是空的", "total": "合計", "digital": "數位產品", "physical": "實體商品", "in_stock": "有貨", "out_of_stock": "缺貨", "promo_code": "優惠碼", "apply": "套用", "order_summary": "訂單摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全處理（測試模式）", "orders": "我的訂單", "order_status": { "pending": "待處理", "paid": "已付款", "shipped": "已發貨", "delivered": "已送達" }
+    "title": "商店", "add_to_cart": "加入購物車", "cart": "購物車", "checkout": "結帳", "empty_cart": "購物車是空的", "total": "合計", "digital": "數位產品", "physical": "實體商品", "in_stock": "有貨", "out_of_stock": "缺貨", "promo_code": "優惠碼", "apply": "套用", "order_summary": "訂單摘要", "payment": "付款", "stripe_note": "付款由 Stripe 安全處理（測試模式）", "orders": "我的訂單", "order_status": { "pending": "待處理", "paid": "已付款", "shipped": "已發貨", "delivered": "已送達" }, "order_complete": "訂單完成！", "order_complete_thanks": "感謝您的購買。", "back_home": "返回首頁"
   },
   "news": {
     "title": "最新消息", "categories": { "all": "全部", "astrology": "星象解析", "tarot": "塔羅心得", "platform": "平台公告", "promotion": "優惠活動" }, "read_more": "閱讀更多", "latest": "最新"
