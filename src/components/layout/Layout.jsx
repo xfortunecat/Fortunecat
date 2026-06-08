@@ -37,7 +37,7 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-navy-900/80 backdrop-blur-md border-b border-gold-400/10 px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-navy-900/80 backdrop-blur-md border-b border-gold-400/10 px-4 flex items-center justify-between" style={{ paddingTop: 'calc(env(safe-area-inset-top) + 12px)', paddingBottom: '12px' }}>
         <Link to="/" className="font-display text-gold-400 text-lg font-semibold tracking-wide">
           {t('app_name')}
         </Link>

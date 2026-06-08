@@ -74,10 +74,21 @@ export default function AuthPage({ mode = 'login' }) {
 
         <div className="space-y-2">
           <button className="w-full border border-gold-400/20 text-ivory/70 py-3 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-navy-700 transition-colors">
-            <span>G</span> {t('auth.google_login')}
+            {/* Google logo */}
+            <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+              <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+              <path d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z" fill="#FBBC05"/>
+              <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+            </svg>
+            {t('auth.google_login')}
           </button>
           <button className="w-full border border-gold-400/20 text-ivory/70 py-3 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-navy-700 transition-colors">
-            <span></span> {t('auth.apple_login')}
+            {/* Apple logo */}
+            <svg width="17" height="18" viewBox="0 0 17 18" xmlns="http://www.w3.org/2000/svg" fill="white">
+              <path d="M8.85 3.54c.75 0 1.69-.51 2.25-1.18.51-.61.88-1.46.88-2.31 0-.11-.01-.23-.03-.32-.84.03-1.85.56-2.46 1.27-.48.54-.92 1.38-.92 2.24 0 .13.02.26.03.3.05.01.14.01.25.01zM6.19 18c1.03 0 1.49-.69 2.78-.69 1.31 0 1.6.67 2.74.67 1.12 0 1.87-1.04 2.58-2.06.8-1.17 1.13-2.31 1.15-2.37-.07-.02-2.24-.9-2.24-3.37 0-2.13 1.68-3.1 1.77-3.17-.99-1.44-2.52-1.48-2.96-1.48-1.27 0-2.3.77-2.94.77-.69 0-1.61-.73-2.7-.73C3.2 5.57 1 7.38 1 10.77c0 2.04.79 4.19 1.76 5.58.83 1.18 1.55 2.1 2.54 2.1-.01-.01-.11-.45-.11-.45z"/>
+            </svg>
+            {t('auth.apple_login')}
           </button>
         </div>
 
